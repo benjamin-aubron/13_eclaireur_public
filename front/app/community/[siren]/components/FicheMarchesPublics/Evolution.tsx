@@ -3,29 +3,29 @@
 import { useState } from 'react';
 
 import { GraphSwitch } from '../DataViz/GraphSwitch';
-import DownloadButton from './DownloadButton';
-import { SubventionYearlyAmountsChart } from './SubventionYearlyAmountsChart';
-import { SubventionyearlyCountsChart } from './SubventionYearlyCountsChart';
+import DownloadButton from '../FicheSubventions/DownloadButton';
+import { MarchesPublicsYearlyAmountsChart } from './MarchesPublicsYearlyAmountsChart';
+import { MarchesPublicsYearlyCountsChart } from './MarchesPublicsYearlyCountsChart';
 
 type EvolutionProps = {
   siren: string;
 };
 
 export default function Evolution({ siren }: EvolutionProps) {
-  const [isSubventionsCountDisplayed, setIsSubventionsCountDisplayed] = useState(false);
+  const [isMarchesPublicsCountDisplayed, setIsMarchesPublicsCountDisplayed] = useState(false);
 
   return (
     <>
       <div className='flex items-baseline justify-between'>
         <div>
           <h3 className='pb-2 pt-10 text-center text-2xl font-medium'>
-            Évolution des subventions au cours du temps
+            Évolution des marchés publics au cours du temps
           </h3>
           <GraphSwitch
-            isActive={isSubventionsCountDisplayed}
-            onChange={setIsSubventionsCountDisplayed}
+            isActive={isMarchesPublicsCountDisplayed}
+            onChange={setIsMarchesPublicsCountDisplayed}
             label1='Montants annuels'
-            label2='Nombre de subventions'
+            label2='Nombre de marchés publics'
           />
         </div>
         <div className='flex items-center justify-between'>
@@ -36,10 +36,10 @@ export default function Evolution({ siren }: EvolutionProps) {
         </div>
       </div>
       <div className='p-4'>
-        {isSubventionsCountDisplayed ? (
-          <SubventionyearlyCountsChart siren={siren} />
+        {isMarchesPublicsCountDisplayed ? (
+          <MarchesPublicsYearlyCountsChart siren={siren} />
         ) : (
-          <SubventionYearlyAmountsChart siren={siren} />
+          <MarchesPublicsYearlyAmountsChart siren={siren} />
         )}
       </div>
     </>
