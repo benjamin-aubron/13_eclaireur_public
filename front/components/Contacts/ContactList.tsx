@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 
-import { useSelectedContactsContext } from '@/app/(visualiser)/interpeller/Contexts/SelectedContactsContext';
-import { CommunityContact } from '@/app/models/communityContact';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Checkbox } from '@/components/ui/checkbox';
+import { useSelectedContactsContext } from '#app/(visualiser)/interpeller/Contexts/SelectedContactsContext';
+import { CommunityContact } from '#app/models/communityContact';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#components/ui/card';
+import { Checkbox } from '#components/ui/checkbox';
 import { User } from 'lucide-react';
 
 type ContactListProps = {
@@ -14,8 +14,6 @@ type ContactListProps = {
 
 export default function ContactList({ contacts }: ContactListProps) {
   const { selectedContacts, addContact, removeContact } = useSelectedContactsContext();
-
-  console.log(selectedContacts);
 
   function handleCheckboxChange(isChecked: boolean, contact: CommunityContact) {
     if (isChecked) {

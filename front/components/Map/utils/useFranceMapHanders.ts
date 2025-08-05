@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { MapLayerMouseEvent, MapRef } from 'react-map-gl/maplibre';
 
-import type { Community } from '@/app/models/community';
+import type { Community } from '#app/models/community';
 
 import type { AdminType, HoverInfo } from '../types';
 import getCommunityDataFromFeature from './getCommunityDataFromFeature';
@@ -64,7 +64,6 @@ export function useFranceMapHandlers({
       setHoverInfo(null);
     }
   };
-
   // Handles click on map features
   const onClick = (event: MapLayerMouseEvent) => {
     const feature = event.features?.[0];

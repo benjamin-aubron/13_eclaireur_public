@@ -1,5 +1,5 @@
-import { YearlyCount } from '@/app/models/graphs';
-import { getQueryFromPool } from '@/utils/db';
+import { YearlyCount } from '#app/models/graphs';
+import { getQueryFromPool } from '#utils/db';
 
 import { DataTable } from '../constants';
 
@@ -10,7 +10,7 @@ function createSQLQueryParams(siren: string): [string, (string | number)[]] {
 
   const querySQL = `
     SELECT 
-      DISTINCT annee_publication_donnees::integer AS year,
+      DISTINCT annee_notification::integer AS year,
       COUNT(*)::integer as count
     FROM ${TABLE_NAME}
     WHERE acheteur_id = $1

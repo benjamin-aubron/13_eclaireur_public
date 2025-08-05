@@ -1,8 +1,8 @@
 'use client';
 
-import Loading from '@/components/ui/Loading';
-import { useMarchesPublicsYearlyCounts } from '@/utils/hooks/useMarchesPublicsYearlyCounts';
-import { formatCompact } from '@/utils/utils';
+import Loading from '#components/ui/Loading';
+import { useMarchesPublicsYearlyCounts } from '#utils/hooks/useMarchesPublicsYearlyCounts';
+import { formatCompact } from '#utils/utils';
 import {
   Bar,
   LabelList,
@@ -38,8 +38,6 @@ export function MarchesPublicsYearlyCountsChart({ siren }: MarchesPublicsYearlyC
     const found = data.find((item) => item.year === el.year);
     return { ...el, count: found?.count ?? el.count };
   });
-
-  console.log(data)
 
   return <BarChart data={chartData} />;
 }

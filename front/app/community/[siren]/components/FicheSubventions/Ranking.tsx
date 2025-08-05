@@ -4,9 +4,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 
-import DownloadButton from '@/app/community/[siren]/components/DownloadDataButton';
-import YearSelector from '@/app/community/[siren]/components/YearSelector';
-import { Subvention } from '@/app/models/subvention';
+import DownloadButton from '#app/community/[siren]/components/DownloadDataButton';
+import YearSelector from '#app/community/[siren]/components/YearSelector';
+import { Subvention } from '#app/models/subvention';
 import {
   Table,
   TableBody,
@@ -14,8 +14,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { formatCompactPrice } from '@/utils/utils';
+} from '#components/ui/table';
+import { formatCompactPrice } from '#utils/utils';
 
 import { YearOption } from '../../types/interface';
 
@@ -30,10 +30,12 @@ export default function Ranking({
 }) {
   const defaultYear: YearOption = availableYears.length > 0 ? Math.max(...availableYears) : 'All';
   const [linesDisplayed, setLinesDisplayed] = useState(0);
-  const [selectedYear, setSelectedYear] = useState<YearOption>('All');
+  const [selectedYear, setSelectedYear] = useState<YearOption>(defaultYear);
 
   const filteredData =
-    selectedYear === 'All' ? data : data.filter((item) => item.annee === selectedYear);
+    selectedYear === 'All'
+      ? data
+      : data.filter((item) => String(item.annee) === String(selectedYear));
 
   function formatSubventionObject(input: string): string[] {
     return input
